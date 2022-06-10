@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/css/bootstrap-grid.min.css';
+ html, body {
+	 height: 100%;
+}
+ body {
+	 margin: 0;
+	 font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+	 background: rgba(27, 31, 35, 0.05);
+}
+ .table-responsive {
+	 display: block;
+	 width: 100%;
+	 overflow-x: auto;
+	 -webkit-overflow-scrolling: touch;
+	 -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+ .table-responsive table {
+	 width: 100%;
+}
+ .table-responsive table td, .table-responsive table th {
+	 padding-left: 16px;
+	 padding-right: 16px;
+}
+ .mat-card {
+	 margin-bottom: 24px;
+}
+ span.status-alive {
+	 height: 8px;
+	 width: 8px;
+	 margin-right: 4px;
+	 background: #5c4;
+	 border-radius: 50%;
+	 display: inline-block;
+}
+ span.status-dead {
+	 height: 8px;
+	 width: 8px;
+	 margin-right: 4px;
+	 background: #d63d2e;
+	 border-radius: 50%;
+	 display: inline-block;
+}

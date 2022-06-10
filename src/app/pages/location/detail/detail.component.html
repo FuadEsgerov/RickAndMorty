@@ -1,1 +1,26 @@
-<p>detail works!</p>
+<mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
+<div *ngIf="!loading">
+  <h1>{{ location.name }}</h1>
+  <h3>Type: {{ location.type }}</h3>
+  <h3>Dimension: {{ location.dimension }}</h3>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <h2>Location Residents</h2>
+    <div *ngIf="characters.length > 0; else notFound" class="row">
+      <div class="col-lg-12" *ngFor="let item of characters">
+        <mat-card class="character" (click)="goToCharacterDetail(item.id)">
+          <mat-card-header>
+            <img mat-card-avatar [src]="item.image" [alt]="item.name">
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.species }} - {{ item.gender}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #notFound>
+  <p>No data found</p>
+</ng-template>

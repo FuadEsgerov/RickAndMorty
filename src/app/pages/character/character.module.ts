@@ -5,6 +5,7 @@ import { CharacterRoutingModule } from './character-routing.module';
 import { DetailComponent } from './detail/detail.component';
 import { FilterComponent } from './filter/filter.component';
 import { ListComponent } from './list/list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     CharacterRoutingModule
   ]
 })

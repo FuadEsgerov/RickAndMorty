@@ -1,1 +1,74 @@
-<p>detail works!</p>
+<mat-progress-spinner
+  *ngIf="loading"
+  mode="indeterminate"
+></mat-progress-spinner>
+
+<div *ngIf="!loading">
+  <h1>{{ character.name }}</h1>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <div class="row">
+      <div class="col-lg-4">
+        <img [src]="character.image" [alt]="character.name" />
+      </div>
+      <div class="col-lg-8">
+        <h2>Character Info</h2>
+        <mat-list role="list">
+          <mat-list-item role="listitem"
+            >Status:
+            {{ character.status ? character.status : "-" }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >Gender:
+            {{ character.gender ? character.gender : "-" }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >Species:
+            {{ character.species ? character.species : "-" }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >Type: {{ character.type ? character.type : "-" }}</mat-list-item
+          >
+          <mat-list-item role="listitem">
+            Origin:
+            <button
+              mat-button
+              color="primary"
+              (click)="goToLocationDetail(character.origin.url)"
+            >
+              {{ character.origin.name }}
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            Location:
+            <button
+              mat-button
+              color="primary"
+              (click)="goToLocationDetail(character.location.url)"
+            >
+              {{ character.location.name }}
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <h2>{{ character.name }}'s Episodes</h2>
+    <div class="row">
+      <div class="col-lg-12">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let episode of episodes" role="listitem">
+            <button
+              (click)="goToEpisodeDetail(episode.id)"
+              mat-button
+              color="primary"
+            >
+              {{ episode.episode }}: {{ episode.name }}
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card>
+</div>

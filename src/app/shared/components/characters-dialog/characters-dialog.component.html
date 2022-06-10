@@ -1,1 +1,17 @@
-<p>characters-dialog works!</p>
+<h2 mat-dialog-title>
+  <span [matBadge]="data.characters.length" matBadgeOverlap="false">{{ data.title }}</span>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="loading">
+    <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <mat-card *ngFor="let item of characters" (click)="goToCharacterDetail(item.id)">
+      <mat-card-header>
+        <img mat-card-avatar [src]="item.image" [alt]="item.name">
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.species }} - {{ item.gender}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</mat-dialog-content>

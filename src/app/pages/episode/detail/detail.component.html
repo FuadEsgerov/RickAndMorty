@@ -1,1 +1,20 @@
-<p>detail works!</p>
+<mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
+<div *ngIf="!loading">
+  <h1>{{ episode.episode }}: {{ episode.name }} ({{ episode.air_date }})</h1>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <h2>Episode Characters</h2>
+    <div class="row">
+      <div class="col-lg-12" *ngFor="let item of characters">
+        <mat-card class="character" (click)="goToCharacterDetail(item.id)">
+          <mat-card-header>
+            <img mat-card-avatar [src]="item.image" [alt]="item.name">
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.species }} - {{ item.gender}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>

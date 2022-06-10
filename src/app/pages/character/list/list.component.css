@@ -1,0 +1,25 @@
+.character {
+  margin-bottom: 24px;
+}
+.characterimage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  min-height: 200px;
+}
+
+.mat-card {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.mat-card .mat-card-header {
+  padding-top: 24px;
+  cursor: pointer;
+}
+.mat-card .mat-card-header-text {
+  margin: 0;
+}
+.mat-card .mat-card-content {
+  margin: 0 16px 16px 16px;
+}

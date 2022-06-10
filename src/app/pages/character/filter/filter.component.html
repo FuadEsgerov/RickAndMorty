@@ -1,1 +1,46 @@
-<p>filter works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Filter Characters</mat-card-title>
+    <button mat-button (click)="clearFilter()">Clear Filter</button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <!-- Name -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="formParams.name" (ngModelChange)="applyFilter()"
+          placeholder="Name">
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="formParams.status" (ngModelChange)="applyFilter()">
+          <mat-option *ngFor="let status of statusOptions | keyvalue" [value]="status.key">
+            {{ status.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Gender -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="formParams.gender" (ngModelChange)="applyFilter()">
+          <mat-option *ngFor="let gender of genderOptions | keyvalue" [value]="gender.key">
+            {{ gender.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Species -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Species</mat-label>
+        <mat-select [(ngModel)]="formParams.species" (ngModelChange)="applyFilter()">
+          <mat-option *ngFor="let species of speciesOptions | keyvalue" [value]="species.key">
+            {{ species.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

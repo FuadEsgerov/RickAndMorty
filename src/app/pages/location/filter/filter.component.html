@@ -1,1 +1,32 @@
 <p>filter works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Filter Locations</mat-card-title>
+    <button mat-button (click)="clearFilter()">Clear Filter</button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <!-- Name -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="formParams.name" (ngModelChange)="applyFilter()"
+          placeholder="Name">
+      </mat-form-field>
+
+      <!-- Type -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Type</mat-label>
+        <input matInput type="text" name="type" [(ngModel)]="formParams.type" (ngModelChange)="applyFilter()"
+          placeholder="Type">
+      </mat-form-field>
+
+      <!-- Dimension -->
+      <mat-form-field class="col-lg-3 col-md-6" appearance="outline">
+        <mat-label>Dimension</mat-label>
+        <input matInput type="text" name="dimension" [(ngModel)]="formParams.dimension" (ngModelChange)="applyFilter()"
+          placeholder="Dimension">
+      </mat-form-field>
+
+    </div>
+  </mat-card-content>
+</mat-card>
